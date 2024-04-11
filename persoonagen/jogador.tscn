@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://v8k6qoo56342"]
+
+[ext_resource type="Script" path="res://persoonagen/Scipits/jogador_base.gd" id="1_x4wki"]
+[ext_resource type="Texture2D" uid="uid://dg6pes6ci78xe" path="res://persoonagen/Sprits/Prototype_Character.png" id="2_jci6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjgu6"]
+size = Vector2(12, 3)
+
+[node name="Jogador" type="CharacterBody2D"]
+script = ExtResource("1_x4wki")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("2_jci6q")
+hframes = 4
+vframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_pjgu6")
