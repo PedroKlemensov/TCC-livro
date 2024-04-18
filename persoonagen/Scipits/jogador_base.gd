@@ -33,4 +33,3 @@ func _animete() -> void:
 		_state_machine.travel("walk")
 		return
 	_state_machine.travel("idle")
-
