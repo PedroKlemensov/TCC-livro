@@ -456,6 +456,7 @@ states/walk/position = Vector2(344, 78.3333)
 graph_offset = Vector2(-176, -137)
 
 [node name="Jogador" type="CharacterBody2D" node_paths=PackedStringArray("_animation_tree")]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_x4wki")
 _animation_tree = NodePath("AnimationTree")
 
@@ -482,3 +483,5 @@ tree_root = SubResource("AnimationNodeStateMachine_od6en")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]

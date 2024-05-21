@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ksbfh7fjwhcq"]
+
+[ext_resource type="PackedScene" uid="uid://b51ur513ks825" path="res://cenas/ZONA01.tscn" id="1_b36fk"]
+[ext_resource type="PackedScene" uid="uid://v8k6qoo56342" path="res://persoonagen/jogador.tscn" id="2_0w1e5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Terreno" parent="." instance=ExtResource("1_b36fk")]
+
+[node name="Jogador" parent="." instance=ExtResource("2_0w1e5")]
+position = Vector2(99, -682)
