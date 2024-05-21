@@ -27,7 +27,7 @@ func _move() -> void:
 		_animation_tree["parameters/walk/blend_position"] = _direction
 	velocity = _direction.normalized() * _move_speed
 	move_and_slide()
-	prints(_direction)
+
 func _animete() -> void:
 	if velocity.length() >2:
 		_state_machine.travel("walk")
