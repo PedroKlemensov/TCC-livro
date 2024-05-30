@@ -1,11 +1,108 @@
-[gd_scene load_steps=3 format=3 uid="uid://ksbfh7fjwhcq"]
+[gd_scene load_steps=12 format=3 uid="uid://ksbfh7fjwhcq"]
 
 [ext_resource type="PackedScene" uid="uid://b51ur513ks825" path="res://cenas/ZONA01.tscn" id="1_b36fk"]
 [ext_resource type="PackedScene" uid="uid://v8k6qoo56342" path="res://persoonagen/jogador.tscn" id="2_0w1e5"]
+[ext_resource type="Script" path="res://cenas/Fase1Tps/portas.gd" id="3_t1fcj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fduwr"]
+size = Vector2(17, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxfa5"]
+size = Vector2(20, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehghn"]
+size = Vector2(22, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iybwj"]
+size = Vector2(16, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md4en"]
+size = Vector2(15, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wivky"]
+size = Vector2(33, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjsge"]
+size = Vector2(16, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0skuq"]
+size = Vector2(20, 30)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Terreno" parent="." instance=ExtResource("1_b36fk")]
 
 [node name="Jogador" parent="." instance=ExtResource("2_0w1e5")]
-position = Vector2(136, -713)
+position = Vector2(94, -160)
+
+[node name="tps" type="Node2D" parent="."]
+
+[node name="Sala_Cozinha" type="Area2D" parent="tps" groups=["Teleporter"]]
+script = ExtResource("3_t1fcj")
+target_position = Vector2(-395.973, -132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tps/Sala_Cozinha"]
+position = Vector2(-67, -66)
+shape = SubResource("RectangleShape2D_fduwr")
+debug_color = Color(0.854902, 0.2, 0.756863, 0.419608)
+
+[node name="cozinha_sala" type="Area2D" parent="tps" groups=["Teleporter"]]
+script = ExtResource("3_t1fcj")
+target_position = Vector2(-66.5, -67.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tps/cozinha_sala"]
+position = Vector2(-395.973, -132)
+shape = SubResource("RectangleShape2D_cxfa5")
+debug_color = Color(0.886275, 0.196078, 0.666667, 0.419608)
+
+[node name="Sala_corredor" type="Area2D" parent="tps" groups=["Teleporter"]]
+script = ExtResource("3_t1fcj")
+target_position = Vector2(253, -676)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tps/Sala_corredor"]
+position = Vector2(114, -164)
+shape = SubResource("RectangleShape2D_ehghn")
+debug_color = Color(0.941176, 0.14902, 0.478431, 0.419608)
+
+[node name="corredor_sala" type="Area2D" parent="tps" groups=["Teleporter"]]
+script = ExtResource("3_t1fcj")
+target_position = Vector2(114, -164)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tps/corredor_sala"]
+position = Vector2(253, -676)
+shape = SubResource("RectangleShape2D_iybwj")
+debug_color = Color(0.945098, 0.113725, 0.513726, 0.419608)
+
+[node name="corredor_banhero" type="Area2D" parent="tps" groups=["Teleporter"]]
+script = ExtResource("3_t1fcj")
+target_position = Vector2(-499, -659)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tps/corredor_banhero"]
+position = Vector2(-50, -707)
+shape = SubResource("RectangleShape2D_md4en")
+debug_color = Color(0.94902, 0, 0.576471, 0.419608)
+
+[node name="corredor_quarto" type="Area2D" parent="tps" groups=["Teleporter"]]
+script = ExtResource("3_t1fcj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tps/corredor_quarto"]
+position = Vector2(39, -748)
+shape = SubResource("RectangleShape2D_wivky")
+debug_color = Color(0.945098, 0.0156863, 0.576471, 0.419608)
+
+[node name="banhero_corredor" type="Area2D" parent="tps" groups=["Teleporter"]]
+script = ExtResource("3_t1fcj")
+target_position = Vector2(-50, -707)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tps/banhero_corredor"]
+position = Vector2(-499, -659)
+shape = SubResource("RectangleShape2D_kjsge")
+debug_color = Color(0.933333, 0.0352941, 0.635294, 0.419608)
+
+[node name="quarto_corredor" type="Area2D" parent="tps" groups=["Teleporter"]]
+script = ExtResource("3_t1fcj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tps/quarto_corredor"]
+position = Vector2(42, -878)
+shape = SubResource("RectangleShape2D_0skuq")
+debug_color = Color(0.937255, 0, 0.623529, 0.419608)
