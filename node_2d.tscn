@@ -26,7 +26,7 @@ size = Vector2(33, 14)
 size = Vector2(16, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0skuq"]
-size = Vector2(20, 30)
+size = Vector2(31, 14)
 
 [node name="Node2D" type="Node2D"]
 
@@ -84,6 +84,7 @@ debug_color = Color(0.94902, 0, 0.576471, 0.419608)
 
 [node name="corredor_quarto" type="Area2D" parent="tps" groups=["Teleporter"]]
 script = ExtResource("3_t1fcj")
+target_position = Vector2(37.5, -1100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tps/corredor_quarto"]
 position = Vector2(39, -748)
@@ -101,8 +102,9 @@ debug_color = Color(0.933333, 0.0352941, 0.635294, 0.419608)
 
 [node name="quarto_corredor" type="Area2D" parent="tps" groups=["Teleporter"]]
 script = ExtResource("3_t1fcj")
+target_position = Vector2(39, -748)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tps/quarto_corredor"]
-position = Vector2(42, -878)
+position = Vector2(37.5, -1100)
 shape = SubResource("RectangleShape2D_0skuq")
 debug_color = Color(0.937255, 0, 0.623529, 0.419608)
