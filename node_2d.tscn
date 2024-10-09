@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ksbfh7fjwhcq"]
+[gd_scene load_steps=19 format=3 uid="uid://ksbfh7fjwhcq"]
 
 [ext_resource type="PackedScene" uid="uid://b51ur513ks825" path="res://cenas/ZONA01.tscn" id="1_b36fk"]
 [ext_resource type="PackedScene" uid="uid://v8k6qoo56342" path="res://persoonagen/jogador.tscn" id="2_0w1e5"]
 [ext_resource type="Script" path="res://cenas/Fase1Tps/portas.gd" id="3_t1fcj"]
+[ext_resource type="Script" path="res://Scripits/Avisos.gd" id="4_wocvy"]
+[ext_resource type="Script" path="res://Scripits/Tuturial.gd" id="5_wbuld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fduwr"]
 size = Vector2(17, 31)
@@ -28,18 +30,35 @@ size = Vector2(16, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0skuq"]
 size = Vector2(31, 14)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mvthb"]
+radius = 14.0
+height = 34.0
+
+[sub_resource type="SystemFont" id="SystemFont_478u6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyjkk"]
+size = Vector2(88, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo4o8"]
+size = Vector2(20, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cipe"]
+size = Vector2(111, 20)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Terreno" parent="." instance=ExtResource("1_b36fk")]
 
 [node name="Jogador" parent="." instance=ExtResource("2_0w1e5")]
-position = Vector2(94, -160)
+position = Vector2(131, -16)
+_move_speed = 64.0
 
 [node name="tps" type="Node2D" parent="."]
+visible = false
 
 [node name="Sala_Cozinha" type="Area2D" parent="tps" groups=["Teleporter"]]
 script = ExtResource("3_t1fcj")
-target_position = Vector2(-395.973, -132)
+target_position = Vector2(-385, -135)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tps/Sala_Cozinha"]
 position = Vector2(-67, -66)
@@ -51,7 +70,7 @@ script = ExtResource("3_t1fcj")
 target_position = Vector2(-66.5, -67.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tps/cozinha_sala"]
-position = Vector2(-395.973, -132)
+position = Vector2(-385, -135)
 shape = SubResource("RectangleShape2D_cxfa5")
 debug_color = Color(0.886275, 0.196078, 0.666667, 0.419608)
 
@@ -108,3 +127,256 @@ target_position = Vector2(39, -748)
 position = Vector2(37.5, -1100)
 shape = SubResource("RectangleShape2D_0skuq")
 debug_color = Color(0.937255, 0, 0.623529, 0.419608)
+
+[node name="Avisos" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Avisos" groups=["Avisos"]]
+position = Vector2(-61, -82)
+script = ExtResource("4_wocvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avisos/Area2D"]
+shape = SubResource("CapsuleShape2D_mvthb")
+
+[node name="Panel" type="Panel" parent="Avisos/Area2D"]
+offset_left = -27.0
+offset_top = -44.0
+offset_right = 27.0
+offset_bottom = -24.0
+
+[node name="Label" type="Label" parent="Avisos/Area2D/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_478u6")
+theme_override_font_sizes/font_size = 9
+text = "Aperte [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D2" type="Area2D" parent="Avisos" groups=["Avisos"]]
+position = Vector2(112, -165)
+script = ExtResource("4_wocvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avisos/Area2D2"]
+shape = SubResource("CapsuleShape2D_mvthb")
+
+[node name="Panel" type="Panel" parent="Avisos/Area2D2"]
+offset_left = -27.0
+offset_top = -44.0
+offset_right = 27.0
+offset_bottom = -24.0
+
+[node name="Label" type="Label" parent="Avisos/Area2D2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_478u6")
+theme_override_font_sizes/font_size = 9
+text = "Aperte [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D3" type="Area2D" parent="Avisos" groups=["Avisos"]]
+position = Vector2(-385, -135)
+script = ExtResource("4_wocvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avisos/Area2D3"]
+shape = SubResource("CapsuleShape2D_mvthb")
+
+[node name="Panel" type="Panel" parent="Avisos/Area2D3"]
+offset_left = -27.0
+offset_top = -44.0
+offset_right = 27.0
+offset_bottom = -24.0
+
+[node name="Label" type="Label" parent="Avisos/Area2D3/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_478u6")
+theme_override_font_sizes/font_size = 9
+text = "Aperte [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D4" type="Area2D" parent="Avisos" groups=["Avisos"]]
+position = Vector2(252, -678)
+script = ExtResource("4_wocvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avisos/Area2D4"]
+shape = SubResource("CapsuleShape2D_mvthb")
+
+[node name="Panel" type="Panel" parent="Avisos/Area2D4"]
+offset_left = -27.0
+offset_top = -44.0
+offset_right = 27.0
+offset_bottom = -24.0
+
+[node name="Label" type="Label" parent="Avisos/Area2D4/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_478u6")
+theme_override_font_sizes/font_size = 9
+text = "Aperte [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D5" type="Area2D" parent="Avisos" groups=["Avisos"]]
+position = Vector2(40, -1098)
+script = ExtResource("4_wocvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avisos/Area2D5"]
+shape = SubResource("CapsuleShape2D_mvthb")
+
+[node name="Panel" type="Panel" parent="Avisos/Area2D5"]
+offset_left = -27.0
+offset_top = -44.0
+offset_right = 27.0
+offset_bottom = -24.0
+
+[node name="Label" type="Label" parent="Avisos/Area2D5/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_478u6")
+theme_override_font_sizes/font_size = 9
+text = "Aperte [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D6" type="Area2D" parent="Avisos" groups=["Avisos"]]
+position = Vector2(-498, -659)
+script = ExtResource("4_wocvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avisos/Area2D6"]
+shape = SubResource("CapsuleShape2D_mvthb")
+
+[node name="Panel" type="Panel" parent="Avisos/Area2D6"]
+offset_left = -27.0
+offset_top = -44.0
+offset_right = 27.0
+offset_bottom = -24.0
+
+[node name="Label" type="Label" parent="Avisos/Area2D6/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_478u6")
+theme_override_font_sizes/font_size = 9
+text = "Aperte [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D7" type="Area2D" parent="Avisos" groups=["Avisos"]]
+position = Vector2(39, -748)
+script = ExtResource("4_wocvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avisos/Area2D7"]
+shape = SubResource("CapsuleShape2D_mvthb")
+
+[node name="Panel" type="Panel" parent="Avisos/Area2D7"]
+offset_left = -27.0
+offset_top = -44.0
+offset_right = 27.0
+offset_bottom = -24.0
+
+[node name="Label" type="Label" parent="Avisos/Area2D7/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_478u6")
+theme_override_font_sizes/font_size = 9
+text = "Aperte [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D8" type="Area2D" parent="Avisos" groups=["Avisos"]]
+position = Vector2(-52, -707)
+script = ExtResource("4_wocvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avisos/Area2D8"]
+shape = SubResource("CapsuleShape2D_mvthb")
+
+[node name="Panel" type="Panel" parent="Avisos/Area2D8"]
+offset_left = -27.0
+offset_top = -44.0
+offset_right = 27.0
+offset_bottom = -24.0
+
+[node name="Label" type="Label" parent="Avisos/Area2D8/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_478u6")
+theme_override_font_sizes/font_size = 9
+text = "Aperte [E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tuturial" type="Node2D" parent="." groups=["Tuturial"]]
+unique_name_in_owner = true
+script = ExtResource("5_wbuld")
+mensagens = Array[String](["TESTE>>>", "aloooo", ":D"])
+
+[node name="Area2D" type="Area2D" parent="Tuturial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tuturial/Area2D"]
+position = Vector2(147, -38)
+shape = SubResource("RectangleShape2D_cyjkk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tuturial/Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tuturial/Area2D/StaticBody2D"]
+position = Vector2(93, -45)
+shape = SubResource("RectangleShape2D_fo4o8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Tuturial/Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tuturial/Area2D/StaticBody2D2"]
+position = Vector2(134.5, -84)
+shape = SubResource("RectangleShape2D_3cipe")
+
+[node name="Panel" type="Panel" parent="Tuturial/Area2D"]
+offset_left = 90.0
+offset_top = -116.0
+offset_right = 210.0
+offset_bottom = -76.0
+
+[node name="Label" type="Label" parent="Tuturial/Area2D/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = 2.0
+offset_right = -11.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

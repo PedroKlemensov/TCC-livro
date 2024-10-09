@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://v8k6qoo56342"]
+[gd_scene load_steps=29 format=3 uid="uid://v8k6qoo56342"]
 
 [ext_resource type="Script" path="res://persoonagen/Scipits/jogador_base.gd" id="1_x4wki"]
 [ext_resource type="Texture2D" uid="uid://dg6pes6ci78xe" path="res://persoonagen/Sprits/Prototype_Character.png" id="2_jci6q"]
+[ext_resource type="PackedScene" uid="uid://dtladek26nj5x" path="res://UI/pausemenu.tscn" id="2_mcddg"]
 
 [sub_resource type="Animation" id="Animation_12kjd"]
 length = 0.001
@@ -455,9 +456,13 @@ graph_offset = Vector2(-176, -137)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk2l3"]
 size = Vector2(10.6667, 2.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn7cc"]
+size = Vector2(10.6667, 2.66667)
+
 [node name="Jogador" type="CharacterBody2D" node_paths=PackedStringArray("_animation_tree") groups=["Player"]]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_x4wki")
+pause_menu_scene = ExtResource("2_mcddg")
 _animation_tree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -485,3 +490,9 @@ parameters/walk/blend_position = Vector2(0, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.38419e-07, -0.75)
 shape = SubResource("RectangleShape2D_uk2l3")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, -0.666667)
+shape = SubResource("RectangleShape2D_kn7cc")

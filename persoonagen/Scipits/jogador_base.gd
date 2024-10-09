@@ -1,10 +1,15 @@
 extends CharacterBody2D
 
 var _state_machine
-
+@export var pause_menu_scene: PackedScene
 @export_category("Variables")
 @export var _move_speed: float = 64.0
 @export var _animation_tree: AnimationTree = null
+@onready var tuturial = %Tuturial
+@onready var area = $Area
+
+
+
 
 # Variable to hold the reference to the current teleporter
 var current_teleporter = null
@@ -43,6 +48,11 @@ func _animate() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interacao") and current_teleporter:
 		current_teleporter.teleport_player()
+	if Input.is_action_just_pressed("interacao"):
+		var exit_area = area.get_overlapping_areas()
+		for tuturial in exit_area:
+			if tuturial.is_in_group("Tuturial"):
+				tuturial._on_interation()
 
 # Function to detect when the player enters a teleporter area
 func on_teleporter_entered(teleporter: Area2D) -> void:
