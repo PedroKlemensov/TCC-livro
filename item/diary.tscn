@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvwvrtqc7wol4"]
+
+[ext_resource type="Texture2D" uid="uid://byx1xyuh6kl0s" path="res://item/BookPack/books_byBatuhan.png" id="1_cgf1s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63pbw"]
+size = Vector2(31, 29)
+
+[node name="diary" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cgf1s")
+region_enabled = true
+region_rect = Rect2(33.463, 34.3887, 31.405, 29.3457)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_63pbw")

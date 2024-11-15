@@ -7,7 +7,7 @@ var _state_machine
 @export var _animation_tree: AnimationTree = null
 @onready var tuturial = %Tuturial
 @onready var area = $Area
-
+@onready var diario = %Diario
 
 
 
@@ -53,6 +53,9 @@ func _process(delta: float) -> void:
 		for tuturial in exit_area:
 			if tuturial.is_in_group("Tuturial"):
 				tuturial._on_interation()
+		for diario in exit_area:
+			if diario.is_in_group("Leitura"):
+				diario._on_player_interaction()
 
 # Function to detect when the player enters a teleporter area
 func on_teleporter_entered(teleporter: Area2D) -> void:

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdpfix0u3tmxj"]
+
+[ext_resource type="Script" path="res://item/text_box.gd" id="1_oulnh"]
+[ext_resource type="Texture2D" uid="uid://cbciovpg7afrx" path="res://item/png/paper_panel_360_x_392.png" id="2_5ugkd"]
+
+[node name="Text_Box" type="MarginContainer"]
+offset_right = 110.0
+offset_bottom = 142.0
+script = ExtResource("1_oulnh")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_5ugkd")
+region_rect = Rect2(-0.388348, -0.303236, 362.978, 391.816)
+
+[node name="label_margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 100
+
+[node name="text" type="Label" parent="label_margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ola"
